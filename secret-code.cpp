@@ -27,7 +27,7 @@ int main() {
     //     cout << endl;
     // }
 
-    int lines, row;
+    int lines, row = 0;
     cin >> lines;
     string out;
     cin.ignore();
