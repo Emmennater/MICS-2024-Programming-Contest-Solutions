@@ -87,7 +87,7 @@ int main() {
         int year = m.monthIdx / 12;
         cout << month << " " << year << ": " <<
             "Average daily high temperature " << round(m.avgMax * 10) / 10 <<
-            "and Average daily low temperature " << round(m.avgMin * 10) / 10 << endl;
+            " and Average daily low temperature " << round(m.avgMin * 10) / 10 << endl;
     }
 
     return 0;

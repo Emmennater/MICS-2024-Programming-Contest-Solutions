@@ -23,8 +23,13 @@ void enqueue(vector<int>& tree, int item) {
 }
 
 void dequeue(vector<int>& tree) {
+    if (tree.size() == 0) return;
+
     int item = tree[tree.size() - 1];
     tree.pop_back();
+
+    if (tree.size() == 0) return;
+    
     tree[0] = item;
     int currentIndex = 0;
 
