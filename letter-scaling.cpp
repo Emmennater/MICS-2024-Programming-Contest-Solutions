@@ -13,19 +13,30 @@ string generateA(int scl) {
 
     // Top
     for (int i = 0; i < topheight; ++i) {
+        int lettersused = 0;
         int maxletters = i * 2 + 1 + (size + 1) % 2;
         int leftletters = min(scl, maxletters);
         out += string(topheight - i, ' ');
         out += string(leftletters, 'A');
+        lettersused += topheight - i;
+        lettersused += leftletters;
 
         int diff = i * 2 - scl + (size + 1) % 2;
         if (diff > 0) {
             int numSpaces = (i - scl) * 2 + 1 + (size + 1) % 2;
-            if (numSpaces > 0) out += string(numSpaces, ' ');
+            if (numSpaces > 0) {
+                out += string(numSpaces, ' ');
+                lettersused += numSpaces;
+            }
             
             // Use remaining letters up to scl
-            out += string(min(scl, maxletters - leftletters), 'A');
+            int rightletters = min(scl, maxletters - leftletters);
+            out += string(rightletters, 'A');
+            lettersused += rightletters;
         }
+
+        int spacesleft = size - lettersused;
+        if (spacesleft > 0) out += string(spacesleft, ' ');
 
         out += '\n';
     }
